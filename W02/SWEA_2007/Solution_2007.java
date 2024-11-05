@@ -2,7 +2,7 @@ package SWEA_2007;
 
 import java.util.Scanner;
 
-public class Solution {
+public class Solution_2007 {
 	
 	public static void main(String[] args) {
 
