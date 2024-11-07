@@ -48,7 +48,6 @@ public class Main_1774 {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
         
         int N = Integer.parseInt(st.nextToken());
@@ -83,22 +82,20 @@ public class Main_1774 {
             }
         }
         
-        // 간선들을 가중치(거리) 기준으로 오름차순 정렬
+        // 간선을 거리 기준으로 오름차순 정렬
         Collections.sort(edgeList);
 
         double ans = 0;
 
-        // 크루스칼 알고리즘 수행
-        // 가중치가 작은 간선부터 선택하면서 사이클이 생기지 않도록 연결
+        // 거리가 짧은 간선부터 선택하면서 사이클이 생기지 않도록 연결
         for (int i = 0; i < edgeList.size(); i++) {
             Edge edge = edgeList.get(i);
             if (find(edge.start) != find(edge.end)) {  // 사이클이 생기지 않는 경우
-                ans += edge.distance;  // 해당 간선의 가중치 추가
+                ans += edge.distance;  // 해당 간선의 거리 추가
                 union(edge.start, edge.end);  // 두 정점 연결
             }
         }
 
-        // 소수점 둘째자리까지 출력
         System.out.println(String.format("%.2f", ans));
 	}
 
